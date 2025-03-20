@@ -105,11 +105,11 @@ LEFT JOIN ESTOY_VIENDO E ON S.serie_id = E.serie
 LEFT JOIN USUARIO U ON E.usuario = U.nombre
 ORDER BY S.titulo, nombre_usuario;
 
-//REPITE I012 //S1.35. [F/M] Identificador de los intérpretes que han participado con rol ‘Reparto’ en alguna serie y
+//S1.35. [F/M] Identificador de los intérpretes que han participado con rol ‘Reparto’ en alguna serie y
 //que hayan nacido en la década de los 80 del siglo XX, pero que nunca hayan formado parte
 //de series estadounidenses. Hay que usar operadores de conjuntos. (interprete).
 
-SELECT I.interprete_id AS interprete
+SELECT DISTINCT I.interprete_id AS interprete
 FROM INTERPRETE I
 JOIN REPARTO R ON I.interprete_id = R.interprete
 JOIN SERIE S ON R.serie = S.serie_id
