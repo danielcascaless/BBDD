@@ -6,7 +6,7 @@ Convocatoria: junio
 
 Practica: P2. Consultas en SQL
 
-Equipo de practicas: bd1204
+Equipo de practicas: ****
  Integrante 1: Pablo Belchi Corredor             
  Integrante 2: Daniel Cascales Marcos
 */
@@ -30,6 +30,16 @@ JOIN CAPITULO C ON C.SERIE = S.SERIE_ID AND C.CAPITULO=1 AND C.TEMPORADA=1
 WHERE NACIONALIDAD IN ('Espana','Reino Unido')
 ORDER BY T.A_ESTRENO;
 
+
+
+--Otra forma
+
+select T.a_estreno, S.titulo AS titulo_serie, COALESCE(C.titulo, '****') AS titulo_capitulo
+from Serie S
+JOIN temporada T ON S.serie_id = T.serie
+LEFT JOIN capitulo C ON T.serie = C.serie AND T.temporada = C.temporada
+where T.temporada = 1 and C.capitulo = 1 and (S.nacionalidad = 'Espana' or S.nacionalidad = 'Reino Unido')
+order by T.a_estreno asc;
 
 
 
