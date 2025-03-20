@@ -16,13 +16,6 @@ Equipo de practicas: ****
 
 --Q1
 
-DESCRIBE SERIE
-DESCRIBE TEMPORADA
-DESCRIBE CAPITULO
-
-SELECT *
-FROM TEMPORADA;
-
 SELECT T.A_ESTRENO,S.TITULO AS titulo_serie,COALESCE(C.TITULO,'****') AS titulo_capitulo
 FROM SERIE S 
 JOIN TEMPORADA T ON T.SERIE = S.SERIE_ID AND T.TEMPORADA=1
@@ -47,11 +40,6 @@ order by T.a_estreno asc;
 
 --Q2
 
-DESCRIBE INTERPRETE;
-DESCRIBE REPARTO;
-
-
-
 SELECT interprete_id
 FROM INTERPRETE
 WHERE nacionalidad <> 'Reino Unido' AND a_nacimiento > 1982
@@ -67,8 +55,6 @@ WHERE s.genero = 'Drama';
 
 
 --Q3
-
-DESCRIBE USUARIO
 
 SELECT U.nombre AS nombre_usuario, 
        COALESCE(S.titulo, '----') AS titulo_serie
