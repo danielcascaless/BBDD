@@ -72,24 +72,24 @@ FROM interprete I JOIN reparto R ON I.interprete_id = R.interprete
 WHERE R.serie = 'S001'
 ORDER BY R.rol;
 
-//DA 3 MAS //S1.13. [F] Intérpretes británicos ('Reino Unido') que han participado en alguna serie con un papel
+//S1.13. [F] Intérpretes británicos ('Reino Unido') que han participado en alguna serie con un papel
 //protagonista o secundario, ordenados por nombre. (nombre, a_nacimiento, rol).  
 
-select I.nombre, I.a_nacimiento, R.rol
+select DISTINCT I.nombre, I.a_nacimiento, R.rol
 from interprete I join reparto R ON I.interprete_id = R.interprete
 where I.nacionalidad = 'Reino Unido' 
 and (R.rol = 'Protagonista' or R.rol = 'Secundario')
 order by I.nombre;
 
-//DA FILAS DE MAS //S1.16. [F/M] Para cada serie cuyo género es ‘Ciencia Ficcion’ y que tiene alguna temporada con
+//S1.16. [F/M] Para cada serie cuyo género es ‘Ciencia Ficcion’ y que tiene alguna temporada con
 //algún capítulo cuya duración está entre 50 y 53 minutos, mostrar el título de la serie, el
 //número de la temporada, el año de estreno de la temporada, el número de capítulo y el título
 //del capítulo. Ordenado por título de serie y número de temporada. (titulo_serie, temporada,
 //a_estreno, capitulo, titulo_capitulo).
 
-SELECT S.titulo AS titulo_serie, T.temporada, T.a_estreno, C.capitulo, C.titulo AS titulo_capitulo
+SELECT DISTINCT S.titulo AS titulo_serie, T.temporada, T.a_estreno, C.capitulo, C.titulo AS titulo_capitulo
 from serie S 
-JOIN TEMPORADA T ON S.serie_id = T.serie
+JOIN TEMPORADA T  ON S.serie_id = T.serie
 JOIN CAPITULO C ON T.temporada = C.temporada
 where S.genero = 'Ciencia Ficcion' and C.duracion between 50 and 53
 order by S.titulo, T.temporada;
