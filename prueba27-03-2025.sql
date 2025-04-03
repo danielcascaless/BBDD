@@ -5,7 +5,7 @@ Convocatoria: junio
 
 Practica: P2. Consultas en SQL
 
-Equipo de practicas: b1204
+Equipo de practicas: *****
  Integrante 1: Pablo Belchi Corredor             
  Integrante 2: Daniel Cascales Marcos
 */
